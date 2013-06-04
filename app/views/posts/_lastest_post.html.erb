@@ -14,7 +14,7 @@
             <small>
               <div  id='fechaImagen'>
 
-                <div class ='badge badge-info'>
+                <div class ='badge badge-success'>
                   <%= post.created_at.localtime.ctime %>
                 </div>
 
@@ -26,7 +26,7 @@
 
             <div class='caption'>
              <br />
-              <%= link_to 'Edit', edit_post_path(post), :class => 'btn' %>
+              <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary' %>
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn' %>
             </div>
 

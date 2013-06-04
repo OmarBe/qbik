@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
 <% provide(:title, @post.title) %>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
 
 <p>
   <% if @post.has_photo? %>
     <div id="showImage" class="thumbnail">
-      <%= link_to 'Anterior', @ant, :class => 'btn' %><%= link_to 'Siguiente', @next, :class => 'btn', :id => 'btnSig' %>
-      <%= image_tag @post.photo_path %>
+      <%= link_to 'Anterior', @ant, :class => 'btn' %>
+
+      <%= link_to 'Siguiente', @next, :class => 'btn', :id => 'btnSig' %>
+      <h1>
+        <small>Title:</small>
+        <%= @post.title %>
+      </h1>
+      <hr />
+      <%= image_tag @post.photo_path, :id => 'imageShow' %>
+
+
     </div>
   <% else %>
     <b>Problema al cargar la foto</b>
