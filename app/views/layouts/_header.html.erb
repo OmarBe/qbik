@@ -1,0 +1,17 @@
+<header>
+  <div class="navbar navbar-static-top navbar-inverse">
+    <div class="navbar-inner">
+      <a class="brand" href="#">ASD gag</a>
+      <nav>
+        <ul class="nav">
+          <li class="active"><%= link_to 'Home', root_url %></li>
+          <li><a href="#">Gag's</a></li>
+          <li><a href="#">Users</a></li>
+        </ul>
+      </nav>
+      <nav id="btnCrear">
+        <%= link_to 'New Post', new_post_path, :class => 'btn'%>
+      </nav>
+    </div>
+  </div>
+</header>

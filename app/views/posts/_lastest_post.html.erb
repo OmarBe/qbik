@@ -1,0 +1,38 @@
+
+  <ul class="thumbnails">
+    <% @posts.each do |post| %>
+        <li class="span3">
+          <div class='thumbnail'>
+            <h5>
+              <%= link_to post.title, post %>
+            </h5>
+
+            <div id='miniImage'>
+              <%= link_to (image_tag post.photo_path) , post %>
+            </div>
+
+            <small>
+              <div  id='fechaImagen'>
+
+                <div class ='badge badge-info'>
+                  <%= post.created_at.localtime.ctime %>
+                </div>
+
+              </div>
+
+
+            </small>
+
+
+            <div class='caption'>
+             <br />
+              <%= link_to 'Edit', edit_post_path(post), :class => 'btn' %>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn' %>
+            </div>
+
+          </div>
+
+        </li>
+    <% end %>
+  </ul>
+
