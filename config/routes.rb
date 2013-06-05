@@ -1,7 +1,17 @@
 GagCf::Application.routes.draw do
+  resources :users
+
+
   get "welcome/index"
+  get 'sessions/new'
 
   resources :posts
+  resources :users
+  resources :sessions
+
+  match 'login' => 'sessions#new', as: :login
+  match 'logout' => 'sessions#destroy', as: :logout
+
 
 
   # The priority is based upon order of creation:

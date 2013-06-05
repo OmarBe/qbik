@@ -1,0 +1,15 @@
+<h1>Listing users</h1>
+
+<% @users.each do |user| %>
+    <hr />
+    <h1>
+      <%= user.username %>
+      <small>
+        <%= user.email %>
+      </small>
+    </h1>
+    <hr />
+<% end %>
+
+
+<%= link_to 'New User', new_user_path %>
