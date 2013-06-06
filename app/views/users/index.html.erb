@@ -1,9 +1,10 @@
+<% provide(:title, 'Users') %>
 <h1>Listing users</h1>
 
 <% @users.each do |user| %>
     <hr />
     <h1>
-      <%= user.username %>
+      <%= link_to user.username, user %>
       <small>
         <%= user.email %>
       </small>

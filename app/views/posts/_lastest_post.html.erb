@@ -4,7 +4,7 @@
         <li class="span3">
           <div class='thumbnail'>
             <h5>
-              <%= link_to post.title, post %>
+              <%= link_to post.title, post %> by <%= link_to post.user.username, post.user, class: 'badge badge-important' %>
             </h5>
 
             <div id='miniImage'>
@@ -23,12 +23,13 @@
 
             </small>
 
-
+            <% if current_user == post.user %>
             <div class='caption'>
              <br />
               <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary' %>
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn' %>
             </div>
+            <% end %>
 
           </div>
 

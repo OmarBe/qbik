@@ -1,0 +1,37 @@
+<ul class="thumbnails">
+  <% @user.posts.each do |post| %>
+      <li class="span3">
+        <div class='thumbnail'>
+          <h5>
+            <%= link_to post.title, post %> by <%= link_to post.user.username, post.user %>
+          </h5>
+
+          <div id='miniImage'>
+            <%= link_to (image_tag post.photo_path) , post %>
+          </div>
+
+          <small>
+            <div  id='fechaImagen'>
+
+              <div class ='badge badge-success'>
+                <%= post.created_at.localtime.ctime %>
+              </div>
+
+            </div>
+
+
+          </small>
+
+          <% if current_user == post.user %>
+              <div class='caption'>
+                <br />
+                <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary' %>
+                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn' %>
+              </div>
+          <% end %>
+
+        </div>
+
+      </li>
+  <% end %>
+</ul>

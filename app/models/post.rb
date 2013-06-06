@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :photo
+  attr_accessible :title, :photo, :user_id
+  validates :title, :presence => true, :length => { :minimum => 5}
+  validates :extention, :presence => true
   FOTOS = File.join Rails.root, "public", "photo_store"
+  belongs_to :user
 
   after_save :guardar_foto
 

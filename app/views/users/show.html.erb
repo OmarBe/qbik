@@ -1,3 +1,4 @@
+<% provide(:title, @user.username) %>
 <p id="notice"><%= notice %></p>
 
 <h1>
@@ -10,6 +11,9 @@
   <%= @user.email %>
 </p>
 
+<%= render 'post' %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if current_user == @user %>
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
+<% end %>
