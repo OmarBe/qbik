@@ -9,9 +9,18 @@
           <li><%= link_to 'Users', users_url %></li>
         </ul>
       </nav>
-      <nav id="btnCrear">
-        <%= link_to 'New Post', new_post_path, :class => 'btn'%>
-      </nav>
+      <% if !session[:user_id].nil? %>
+
+          <nav id="btnCrear">
+            <%= link_to 'Logout', logout_url, class: 'btn' %>
+            <%= link_to 'New Post', new_post_path, :class => 'btn btn-primary'%>
+
+          </nav>
+      <% else %>
+          <nav id="btnCrear">
+            <%= link_to 'Login', login_url, :class => 'btn btn-primary'%>
+          </nav>
+      <% end %>
     </div>
   </div>
 </header>
